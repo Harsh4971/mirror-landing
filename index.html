@@ -11,16 +11,11 @@
       background: #0f1117;
       color: #c4c2d8;
       font-family: 'Inter', system-ui, -apple-system, sans-serif;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 40px 24px;
+      padding: 64px 24px 80px;
       background-image: radial-gradient(rgba(255,255,255,0.028) 1px, transparent 1px);
       background-size: 28px 28px;
     }
-    .wrap { max-width: 560px; width: 100%; text-align: center; }
+    .wrap { max-width: 560px; width: 100%; text-align: center; margin: 0 auto; }
     .logo { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 48px; }
     .logo h1 { font-size: 26px; font-weight: 700; color: #f0eeff; letter-spacing: -0.4px; }
     .logo span { color: #1d4ed8; }
@@ -61,28 +56,90 @@
     }
     .feature-title { font-size: 13px; font-weight: 600; color: #f0eeff; margin-bottom: 3px; }
     .feature-body { font-size: 13px; color: #6b6888; line-height: 1.6; }
-    .how { margin: 0 0 48px; text-align: left; }
-    .how-title {
-      font-size: 13px; font-weight: 600; text-transform: uppercase;
-      letter-spacing: 0.8px; color: #1d4ed8; text-align: center; margin-bottom: 24px;
+    /* ── Reveal animation ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(44px);
+      transition: opacity 0.65s cubic-bezier(0.16,1,0.3,1), transform 0.65s cubic-bezier(0.16,1,0.3,1);
     }
-    .steps { display: flex; flex-direction: column; gap: 0; }
-    .step { display: flex; gap: 16px; align-items: flex-start; }
-    .step-left { display: flex; flex-direction: column; align-items: center; flex-shrink: 0; }
-    .step-num {
-      width: 28px; height: 28px; border-radius: 50%; flex-shrink: 0;
-      background: rgba(29,78,216,0.12); border: 1px solid rgba(29,78,216,0.3);
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-item { opacity: 0; transition: opacity 0.4s ease; }
+    .reveal.visible .reveal-item { opacity: 1; }
+    .reveal.visible .reveal-item:nth-child(1) { transition-delay: 0ms; }
+    .reveal.visible .reveal-item:nth-child(2) { transition-delay: 70ms; }
+    .reveal.visible .reveal-item:nth-child(3) { transition-delay: 140ms; }
+    .reveal.visible .reveal-item:nth-child(4) { transition-delay: 210ms; }
+    .reveal.visible .reveal-item:nth-child(5) { transition-delay: 280ms; }
+    .reveal.visible .reveal-item:nth-child(6) { transition-delay: 350ms; }
+
+    /* ── Sections ── */
+    .section { margin-bottom: 64px; }
+    .section-label {
+      font-size: 11px; font-weight: 700; color: #5b9cf6;
+      text-transform: uppercase; letter-spacing: 1.2px;
+      margin-bottom: 10px; text-align: center;
+    }
+    .section-title {
+      font-size: 24px; font-weight: 800; color: #f0eeff;
+      margin: 0 0 10px; letter-spacing: -0.5px; text-align: center; line-height: 1.25;
+    }
+    .section-sub {
+      font-size: 14px; color: #6b6888; text-align: center;
+      margin: 0 0 32px; line-height: 1.75; max-width: 520px; margin-inline: auto;
+    }
+
+    /* ── How it works steps ── */
+    .steps-wrap { display: flex; flex-direction: column; max-width: 520px; margin: 0 auto; }
+    .step-row { display: flex; gap: 20px; position: relative; padding-bottom: 34px; }
+    .step-row:last-child { padding-bottom: 0; }
+    .step-num-circle {
+      width: 36px; height: 36px; border-radius: 50%; flex-shrink: 0;
+      background: rgba(29,78,216,0.1); border: 1.5px solid rgba(29,78,216,0.3);
       display: flex; align-items: center; justify-content: center;
-      font-size: 12px; font-weight: 700; color: #5b9cf6;
+      font-size: 14px; font-weight: 700; color: #5b9cf6; z-index: 1;
     }
-    .step-line {
-      width: 1px; flex: 1; min-height: 24px;
+    .step-connector {
+      position: absolute; left: 17px; top: 42px;
+      width: 2px; height: calc(100% - 14px);
       background: linear-gradient(to bottom, rgba(29,78,216,0.25), transparent);
-      margin: 4px 0;
     }
-    .step-body { padding-bottom: 24px; }
-    .step-body-title { font-size: 14px; font-weight: 600; color: #f0eeff; margin-bottom: 4px; margin-top: 4px; }
-    .step-body-desc { font-size: 13px; color: #6b6888; line-height: 1.65; }
+    .step-content { padding-top: 5px; }
+    .step-title { font-size: 14px; font-weight: 700; color: #f0eeff; margin-bottom: 6px; }
+    .step-desc { font-size: 13px; color: #6b6888; line-height: 1.7; }
+
+    /* ── Features grid ── */
+    .features-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .feat-card {
+      background: #151922; border: 1px solid #1e2438;
+      border-radius: 14px; padding: 20px 18px;
+    }
+    .feat-icon {
+      width: 42px; height: 42px; border-radius: 11px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px; margin-bottom: 14px;
+    }
+    .feat-title { font-size: 13px; font-weight: 700; color: #f0eeff; margin-bottom: 7px; line-height: 1.35; }
+    .feat-body { font-size: 12px; color: #6b6888; line-height: 1.65; }
+
+    /* ── Context types ── */
+    .ctx-row {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 11px 16px; background: #151922; border: 1px solid #1e2438;
+      border-radius: 10px; gap: 12px; margin-bottom: 6px;
+    }
+    .ctx-label { font-size: 13px; font-weight: 600; color: #c4c2d8; flex-shrink: 0; }
+    .ctx-desc { font-size: 12px; color: #4a4865; text-align: right; }
+
+    /* ── Privacy block ── */
+    .privacy-block {
+      background: #151922; border: 1px solid #1e2438;
+      border-radius: 14px; padding: 28px 24px; text-align: center; margin-bottom: 64px;
+    }
+    .privacy-block h3 { font-size: 17px; font-weight: 700; color: #f0eeff; margin: 0 0 10px; }
+    .privacy-block p { font-size: 13px; color: #6b6888; line-height: 1.8; margin: 0 auto; max-width: 420px; }
+
+    .divider { border: none; border-top: 1px solid #1e2438; margin: 64px 0; }
+
     .footer {
       margin-top: 48px; padding-top: 24px; border-top: 1px solid #1e2438;
       font-size: 13px; color: #3a3a52;
@@ -151,39 +208,118 @@
     </div>
   </div>
 
-  <div class="how">
-    <div class="how-title">How it works</div>
-    <div class="steps">
-      <div class="step">
-        <div class="step-left">
-          <div class="step-num">1</div>
-          <div class="step-line"></div>
-        </div>
-        <div class="step-body">
-          <div class="step-body-title">Record or upload a conversation</div>
-          <div class="step-body-desc">Hit record on a Google Meet call, or upload any audio or video file — a Zoom recording, a voice memo, a phone call.</div>
+  <hr class="divider">
+
+  <!-- The Problem -->
+  <div class="reveal section">
+    <div class="section-label">The Problem</div>
+    <div class="section-title">You can't see yourself clearly in the moment.</div>
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <p style="margin:0;font-size:14px;color:#8b89aa;line-height:1.85;text-align:center;max-width:540px;margin-inline:auto;">
+        In every conversation you're focused on what to say next. Nobody tells you that you interrupted four times, spoke for 70% of the conversation, or always go quiet when you're challenged.
+      </p>
+      <p style="margin:0;font-size:14px;color:#8b89aa;line-height:1.85;text-align:center;max-width:540px;margin-inline:auto;">
+        <span style="color:#c4c2d8;font-weight:600;">Good coaches cost hundreds per hour.</span> Therapy takes years. Most feedback from the people around you is filtered through politeness or filtered out entirely.
+      </p>
+      <p style="margin:0;font-size:14px;color:#8b89aa;line-height:1.85;text-align:center;max-width:540px;margin-inline:auto;">
+        <span style="color:#c4c2d8;font-weight:600;">That's why mirror exists.</span> Upload a recording and we show you exactly what's happening — not what you think is happening.
+      </p>
+    </div>
+  </div>
+
+  <!-- How It Works -->
+  <div class="reveal section">
+    <div class="section-label">How It Works</div>
+    <div class="section-title">It gets smarter with every session.</div>
+    <div class="steps-wrap">
+      <div class="step-row">
+        <div class="step-connector"></div>
+        <div class="step-num-circle">1</div>
+        <div class="step-content">
+          <div class="step-title">Upload a recording</div>
+          <div class="step-desc">Any conversation — a meeting, a call, a catch-up. 2 to 20 minutes. Hindi or English. What you talked about doesn't matter. How you showed up does.</div>
         </div>
       </div>
-      <div class="step">
-        <div class="step-left">
-          <div class="step-num">2</div>
-          <div class="step-line"></div>
-        </div>
-        <div class="step-body">
-          <div class="step-body-title">Mirror analyses how you showed up</div>
-          <div class="step-body-desc">Speech pace, filler words, talk ratio, listening quality, interruptions, confidence signals — mapped across the conversation.</div>
+      <div class="step-row">
+        <div class="step-connector"></div>
+        <div class="step-num-circle">2</div>
+        <div class="step-content">
+          <div class="step-title">AI reads what was actually said</div>
+          <div class="step-desc">Not just numbers — the actual conversation. We find what you missed, what you repeated, how you listened, and where you lost the thread.</div>
         </div>
       </div>
-      <div class="step">
-        <div class="step-left">
-          <div class="step-num">3</div>
-        </div>
-        <div class="step-body">
-          <div class="step-body-title">Your portrait grows with every session</div>
-          <div class="step-body-desc">Each conversation adds to a behavioral profile that's specific to you — showing patterns, shifts, and what consistently holds you back or moves you forward.</div>
+      <div class="step-row">
+        <div class="step-num-circle">3</div>
+        <div class="step-content">
+          <div class="step-title">Your profile builds over time</div>
+          <div class="step-desc">One session gives immediate feedback. Three sessions reveals patterns. Ten sessions and the mirror knows your behavioral tendencies better than most people who know you.</div>
         </div>
       </div>
     </div>
+  </div>
+
+  <!-- Features Grid -->
+  <div class="reveal section">
+    <div class="section-label">What You Get</div>
+    <div class="section-title">Everything the mirror sees.</div>
+    <div class="section-sub">Each session adds signal. Here's what we track and what it builds into.</div>
+    <div class="features-grid">
+      <div class="feat-card reveal-item">
+        <div class="feat-icon" style="background:rgba(91,156,246,0.07);border:1px solid rgba(91,156,246,0.16);">🎤</div>
+        <div class="feat-title">Real Conversation Analysis</div>
+        <div class="feat-body">We read what was actually said, not just extracted numbers. The AI identifies missed questions, interrupted thoughts, and moments you talked past each other.</div>
+      </div>
+      <div class="feat-card reveal-item">
+        <div class="feat-icon" style="background:rgba(52,211,153,0.07);border:1px solid rgba(52,211,153,0.16);">🔄</div>
+        <div class="feat-title">Mirror Feed</div>
+        <div class="feat-body">Patterns that only emerge across multiple sessions. After a few conversations, the mirror starts noticing what you consistently do — and don't do.</div>
+      </div>
+      <div class="feat-card reveal-item">
+        <div class="feat-icon" style="background:rgba(245,158,11,0.07);border:1px solid rgba(245,158,11,0.16);">🎯</div>
+        <div class="feat-title">Context-Aware Insights</div>
+        <div class="feat-body">An interview is not a casual chat. We detect the type of conversation automatically and calibrate what good looks like for that specific setting.</div>
+      </div>
+      <div class="feat-card reveal-item">
+        <div class="feat-icon" style="background:rgba(129,140,248,0.07);border:1px solid rgba(129,140,248,0.16);">📊</div>
+        <div class="feat-title">Your Behavioral Shape</div>
+        <div class="feat-body">Five dimensions tracked across all your sessions — Confidence, Assertiveness, Listening Quality, Composure, and Clarity — shown as a radar you can watch shift.</div>
+      </div>
+      <div class="feat-card reveal-item">
+        <div class="feat-icon" style="background:rgba(251,146,60,0.07);border:1px solid rgba(251,146,60,0.16);">🎙️</div>
+        <div class="feat-title">Voice Recognition</div>
+        <div class="feat-body">Enroll your voice once. We identify which speaker is you across all future sessions automatically — no manual tagging needed.</div>
+      </div>
+      <div class="feat-card reveal-item">
+        <div class="feat-icon" style="background:rgba(91,156,246,0.07);border:1px solid rgba(91,156,246,0.16);">🔒</div>
+        <div class="feat-title">Privacy by Design</div>
+        <div class="feat-body">Your audio is processed and discarded. Only your behavioral patterns are kept — never your actual words or recordings.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Context Types -->
+  <div class="reveal section">
+    <div class="section-label">Context Types</div>
+    <div class="section-title">Every setting is different.</div>
+    <div class="section-sub">We automatically detect what kind of conversation you had and adjust the feedback. The more types you record in, the fuller the picture.</div>
+    <div>
+      <div class="ctx-row reveal-item"><span class="ctx-label">Interview &amp; Review · High Stakes</span><span class="ctx-desc">Job interviews, performance reviews, presentations</span></div>
+      <div class="ctx-row reveal-item"><span class="ctx-label">Conflict &amp; Friction</span><span class="ctx-desc">Disagreements, pushback, difficult conversations</span></div>
+      <div class="ctx-row reveal-item"><span class="ctx-label">Collaborative</span><span class="ctx-desc">Team meetings, brainstorming, joint problem-solving</span></div>
+      <div class="ctx-row reveal-item"><span class="ctx-label">Persuading &amp; Pitching</span><span class="ctx-desc">Sales calls, pitches, convincing others</span></div>
+      <div class="ctx-row reveal-item"><span class="ctx-label">Negotiation</span><span class="ctx-desc">Deals, salary discussions, competing interests</span></div>
+      <div class="ctx-row reveal-item"><span class="ctx-label">Coaching &amp; Feedback</span><span class="ctx-desc">Mentoring, giving criticism, guiding others</span></div>
+      <div class="ctx-row reveal-item"><span class="ctx-label">Supportive Listening</span><span class="ctx-desc">Emotional support, being there for someone</span></div>
+      <div class="ctx-row reveal-item"><span class="ctx-label">Deep Personal</span><span class="ctx-desc">Vulnerable, emotionally open conversations</span></div>
+      <div class="ctx-row reveal-item"><span class="ctx-label">Casual &amp; Low-Stakes</span><span class="ctx-desc">Everyday chat, catching up, informal exchanges</span></div>
+    </div>
+  </div>
+
+  <!-- Privacy -->
+  <div class="reveal privacy-block">
+    <div style="font-size:32px;margin-bottom:14px;">🔒</div>
+    <h3>Privacy by design</h3>
+    <p>Your audio is processed and immediately discarded. Transcripts are analyzed and never stored. The only thing we keep is a behavioral summary — never your actual words.</p>
   </div>
 
   <div class="footer">
@@ -194,5 +330,16 @@
   </div>
 
 </div>
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
 </body>
 </html>
