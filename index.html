@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>mirror. — Know how you communicate</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #0f1117;
+      color: #c4c2d8;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 24px;
+      background-image: radial-gradient(rgba(255,255,255,0.028) 1px, transparent 1px);
+      background-size: 28px 28px;
+    }
+    .wrap { max-width: 560px; width: 100%; text-align: center; }
+    .logo { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 48px; }
+    .logo h1 { font-size: 26px; font-weight: 700; color: #f0eeff; letter-spacing: -0.4px; }
+    .logo span { color: #1d4ed8; }
+    .headline {
+      font-size: 36px; font-weight: 700; color: #f0eeff;
+      letter-spacing: -0.6px; line-height: 1.2; margin-bottom: 18px;
+    }
+    .sub {
+      font-size: 16px; color: #6b6888; line-height: 1.75; margin-bottom: 40px;
+    }
+    .badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(29,78,216,0.08); border: 1px solid rgba(29,78,216,0.2);
+      border-radius: 20px; padding: 6px 16px; font-size: 13px; color: #a5b4fc;
+      margin-bottom: 32px;
+    }
+    .cta {
+      display: inline-block;
+      background: linear-gradient(135deg, #1d4ed8, #0891b2);
+      color: white; text-decoration: none;
+      border-radius: 10px; padding: 14px 32px;
+      font-size: 15px; font-weight: 600;
+      box-shadow: 0 0 32px rgba(29,78,216,0.25);
+      transition: opacity 0.15s;
+    }
+    .cta:hover { opacity: 0.88; }
+    .features {
+      display: flex; flex-direction: column; gap: 12px;
+      margin: 48px 0; text-align: left;
+    }
+    .feature {
+      display: flex; gap: 14px; padding: 14px 16px;
+      background: rgba(13,15,20,0.6); border: 1px solid #1e2438; border-radius: 10px;
+    }
+    .dot {
+      width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0;
+      background: linear-gradient(135deg, #1d4ed8, #0891b2); margin-top: 6px;
+    }
+    .feature-title { font-size: 13px; font-weight: 600; color: #f0eeff; margin-bottom: 3px; }
+    .feature-body { font-size: 13px; color: #6b6888; line-height: 1.6; }
+    .footer {
+      margin-top: 48px; padding-top: 24px; border-top: 1px solid #1e2438;
+      font-size: 13px; color: #3a3a52;
+    }
+    .footer a { color: #4a4865; text-decoration: none; }
+    .footer a:hover { color: #8b89aa; }
+  </style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="logo">
+    <svg width="26" height="26" viewBox="0 0 32 32" fill="none">
+      <defs>
+        <linearGradient id="g" x1="0" y1="0" x2="32" y2="0" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#1d4ed8"/><stop offset="1" stop-color="#0891b2"/>
+        </linearGradient>
+      </defs>
+      <rect x="2"  y="12" width="4" height="4"  rx="2" fill="url(#g)" opacity=".4"/>
+      <rect x="8"  y="8"  width="4" height="8"  rx="2" fill="url(#g)" opacity=".65"/>
+      <rect x="14" y="4"  width="4" height="12" rx="2" fill="url(#g)"/>
+      <rect x="20" y="8"  width="4" height="8"  rx="2" fill="url(#g)" opacity=".65"/>
+      <rect x="26" y="12" width="4" height="4"  rx="2" fill="url(#g)" opacity=".4"/>
+      <line x1="0" y1="17.5" x2="32" y2="17.5" stroke="#1e2438" stroke-width="1"/>
+      <rect x="2"  y="18" width="4" height="4"  rx="2" fill="url(#g)" opacity=".18"/>
+      <rect x="8"  y="18" width="4" height="8"  rx="2" fill="url(#g)" opacity=".3"/>
+      <rect x="14" y="18" width="4" height="12" rx="2" fill="url(#g)" opacity=".38"/>
+      <rect x="20" y="18" width="4" height="8"  rx="2" fill="url(#g)" opacity=".3"/>
+      <rect x="26" y="18" width="4" height="4"  rx="2" fill="url(#g)" opacity=".18"/>
+    </svg>
+    <h1>mirror<span>.</span></h1>
+  </div>
+
+  <div class="badge">
+    <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+      <circle cx="6" cy="6" r="5" stroke="#a5b4fc" stroke-width="1.2"/>
+      <circle cx="6" cy="6" r="2" fill="#a5b4fc"/>
+    </svg>
+    Chrome Extension · Google Meet
+  </div>
+
+  <h1 class="headline">Your conversations<br/>reveal who you are</h1>
+  <p class="sub">
+    mirror. builds a behavioral portrait from your conversations —
+    speech pace, listening quality, filler words, confidence signals —
+    and shows you the patterns you can't see yourself.
+  </p>
+
+  <a class="cta" href="https://chrome.google.com/webstore" target="_blank" rel="noreferrer">
+    Add to Chrome — it's free
+  </a>
+
+  <div class="features">
+    <div class="feature">
+      <div class="dot"></div>
+      <div>
+        <div class="feature-title">Built from real conversations</div>
+        <div class="feature-body">Record Google Meet calls or upload any audio file. Mirror captures how you actually communicate, not how you think you do.</div>
+      </div>
+    </div>
+    <div class="feature">
+      <div class="dot"></div>
+      <div>
+        <div class="feature-title">Patterns across time</div>
+        <div class="feature-body">Each session adds to your portrait. The mirror notices what changes, what doesn't, and what consistently shapes how you show up.</div>
+      </div>
+    </div>
+    <div class="feature">
+      <div class="dot"></div>
+      <div>
+        <div class="feature-title">Private by design</div>
+        <div class="feature-body">Your audio is processed and permanently deleted the moment analysis is complete. Only the insights are stored — never the recording.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <a href="/privacy">Privacy Policy</a>
+    &nbsp;·&nbsp;
+    <a href="mailto:harsh200415@gmail.com">Contact</a>
+    &nbsp;·&nbsp; © 2026 mirror.
+  </div>
+
+</div>
+</body>
+</html>
