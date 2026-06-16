@@ -60,6 +60,28 @@
     }
     .feature-title { font-size: 13px; font-weight: 600; color: #f0eeff; margin-bottom: 3px; }
     .feature-body { font-size: 13px; color: #6b6888; line-height: 1.6; }
+    .how { margin: 0 0 48px; text-align: left; }
+    .how-title {
+      font-size: 13px; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.8px; color: #1d4ed8; text-align: center; margin-bottom: 24px;
+    }
+    .steps { display: flex; flex-direction: column; gap: 0; }
+    .step { display: flex; gap: 16px; align-items: flex-start; }
+    .step-left { display: flex; flex-direction: column; align-items: center; flex-shrink: 0; }
+    .step-num {
+      width: 28px; height: 28px; border-radius: 50%; flex-shrink: 0;
+      background: rgba(29,78,216,0.12); border: 1px solid rgba(29,78,216,0.3);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px; font-weight: 700; color: #5b9cf6;
+    }
+    .step-line {
+      width: 1px; flex: 1; min-height: 24px;
+      background: linear-gradient(to bottom, rgba(29,78,216,0.25), transparent);
+      margin: 4px 0;
+    }
+    .step-body { padding-bottom: 24px; }
+    .step-body-title { font-size: 14px; font-weight: 600; color: #f0eeff; margin-bottom: 4px; margin-top: 4px; }
+    .step-body-desc { font-size: 13px; color: #6b6888; line-height: 1.65; }
     .footer {
       margin-top: 48px; padding-top: 24px; border-top: 1px solid #1e2438;
       font-size: 13px; color: #3a3a52;
@@ -93,14 +115,6 @@
     <h1>mirror<span>.</span></h1>
   </div>
 
-  <div class="badge">
-    <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-      <circle cx="6" cy="6" r="5" stroke="#a5b4fc" stroke-width="1.2"/>
-      <circle cx="6" cy="6" r="2" fill="#a5b4fc"/>
-    </svg>
-    Chrome Extension · Google Meet
-  </div>
-
   <h1 class="headline">Your conversations<br/>reveal who you are</h1>
   <p class="sub">
     mirror. builds a behavioral portrait from your conversations —
@@ -132,6 +146,41 @@
       <div>
         <div class="feature-title">Private by design</div>
         <div class="feature-body">Your audio is processed and permanently deleted the moment analysis is complete. Only the insights are stored — never the recording.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="how">
+    <div class="how-title">How it works</div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-left">
+          <div class="step-num">1</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-body">
+          <div class="step-body-title">Record or upload a conversation</div>
+          <div class="step-body-desc">Hit record on a Google Meet call, or upload any audio or video file — a Zoom recording, a voice memo, a phone call.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-left">
+          <div class="step-num">2</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-body">
+          <div class="step-body-title">Mirror analyses how you showed up</div>
+          <div class="step-body-desc">Speech pace, filler words, talk ratio, listening quality, interruptions, confidence signals — mapped across the conversation.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-left">
+          <div class="step-num">3</div>
+        </div>
+        <div class="step-body">
+          <div class="step-body-title">Your portrait grows with every session</div>
+          <div class="step-body-desc">Each conversation adds to a behavioral profile that's specific to you — showing patterns, shifts, and what consistently holds you back or moves you forward.</div>
+        </div>
       </div>
     </div>
   </div>
