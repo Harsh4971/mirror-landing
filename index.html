@@ -61,6 +61,18 @@
     }
     .feature-title { font-size: 13px; font-weight: 600; color: #f0eeff; margin-bottom: 3px; }
     .feature-body { font-size: 13px; color: #6b6888; line-height: 1.6; }
+    @keyframes blobDrift1 {
+      0%   { transform: translate(0, 0) scale(1); }
+      30%  { transform: translate(40px, -30px) scale(1.06); }
+      65%  { transform: translate(-20px, 25px) scale(0.96); }
+      100% { transform: translate(25px, 15px) scale(1.03); }
+    }
+    @keyframes blobDrift2 {
+      0%   { transform: translate(0, 0) scale(1); }
+      30%  { transform: translate(-35px, 40px) scale(1.04); }
+      65%  { transform: translate(25px, -20px) scale(0.97); }
+      100% { transform: translate(-15px, 30px) scale(1.05); }
+    }
     .secondary-cta {
       display: inline-block; margin-top: 14px;
       color: #4a4865; text-decoration: none; font-size: 14px;
@@ -76,7 +88,13 @@
   </style>
 </head>
 <body>
-<div class="wrap">
+
+<div style="position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:0;">
+  <div style="position:absolute;top:-15%;right:-8%;width:650px;height:650px;border-radius:50%;background:radial-gradient(circle,rgba(29,78,216,0.09) 0%,transparent 68%);filter:blur(1px);animation:blobDrift1 22s ease-in-out infinite;"></div>
+  <div style="position:absolute;bottom:-12%;left:-6%;width:550px;height:550px;border-radius:50%;background:radial-gradient(circle,rgba(8,145,178,0.07) 0%,transparent 68%);filter:blur(1px);animation:blobDrift2 28s ease-in-out infinite;"></div>
+</div>
+
+<div class="wrap" style="position:relative;z-index:1;">
 
   <div class="logo">
     <svg width="26" height="26" viewBox="0 0 32 32" fill="none">
